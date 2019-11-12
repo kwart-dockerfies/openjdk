@@ -10,17 +10,17 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-FROM alpine:3.7
+FROM alpine:3.10
 
 MAINTAINER Josef (kwart) Cacek <josef.cacek@gmail.com>
 
-ENV MAVEN_VERSION=3.5.3
+ENV MAVEN_VERSION=3.6.2
 
 COPY bashrc /root/.bashrc
 
 RUN echo echo "Installing APK packages" \
     && apk update && apk upgrade \
-    && apk add openjdk8 bash curl procps git zip \
+    && apk add openjdk8 bash curl procps git zip bind-tools \
     && wget http://www.eu.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.zip \
     && unzip -q apache-maven-$MAVEN_VERSION-bin.zip -d /usr/share \
     && ln -s /usr/share/apache-maven-$MAVEN_VERSION/bin/mvn /usr/bin/mvn \

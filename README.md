@@ -13,4 +13,5 @@ Alpine Linux with following packages installed:
 * `procps`
 * `git`
 * `zip`
+* `bind-tools`
 * `maven` (downloaded from Apache sites)
